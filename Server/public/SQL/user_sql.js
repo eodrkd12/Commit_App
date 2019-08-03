@@ -4,7 +4,7 @@ module.exports = function () {
     return {
         select: function (callback) {
             pool.getConnection(function (err, con) {
-                var sql = `select * from user`;
+                var sql = `select name from user`;
                 con.query(sql, function (err, result, fields) {
                     con.release();
                     if (err) return;
