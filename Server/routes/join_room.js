@@ -37,3 +37,5 @@ router.post('/',function(req,res,next){//채팅방 생성
     db_post.create_join_room(req.category,req.number)
     res.send('success_chat')
 })
+
+module.exports=router;
