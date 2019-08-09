@@ -5,7 +5,7 @@ module.exports = function () {
         host: '127.0.0.1',
         port: 3306,
         user: 'root',
-        password: 'eorn5142',
+        password: 'eoqor12!@!@',
         database: 'Uniting',
         connectionLimit: 50,
         queueLimit: 100
