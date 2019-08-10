@@ -5,8 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/user');
-
+var userRouter = require('./routes/user');
+var join_roomRouter = require('./routes/join_room');
+var postRouter = require('./routes/post'); //라우터 파일 참조
+var attachmentRouter=require('./routes/attachment');
 var app = express();
 
 // view engine setup
@@ -20,7 +22,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
+app.use('/user', userRouter);
+app.use('/join_room',join_roomRouter);
+app.use('/post',postRouter); // 라우터에 url 주소 지정
+app.use('/attachment',attachmentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req,res,next){
   db_user.join(req.body.id,req.body.pw,req.body.name,req.body.birthday,req.body.gender,req.body.nickname,req.body.email,req.body.verified,req.body.university,req.body.grade,req.body.department,req.body.profile_image)
-  res.send("회원가입 요청 전송")
+  res.send("success")
 })
 
 module.exports = router;
