@@ -15,4 +15,14 @@ router.post('/', function(req,res,next){
   res.send("success")
 })
 
+router.put('/',function(req,res,next){ // 상원 회원정보수정 (최신화)
+  db_user.update_user(req.body.pw,req.body.nickname)
+  res.send('success');
+})
+
+router.delete('/',function(req,res,next){ // 상원 회원정보 삭제 (최신화)
+  db_user.delete_user(req.body.id)
+  res.send('success');
+})
+
 module.exports = router;
