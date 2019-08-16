@@ -11,6 +11,7 @@ package com.example.commit.Intro
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
 import com.example.commit.R
 import com.example.commit.Singleton.VolleyService
@@ -22,7 +23,9 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btn_login.setOnClickListener  {
-            VolleyService.loginReq(this){success ->
+            var id:String=edit_id.text.toString()
+            var pw:String=edit_pw.text.toString()
+            VolleyService.loginReq(id,pw,this){success ->
                 if(success){
                     Toast.makeText(this,"통신 성공",Toast.LENGTH_SHORT).show()
                 }
