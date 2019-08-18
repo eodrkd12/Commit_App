@@ -28,7 +28,6 @@ module.exports = function () {
                 var sql=`select * from user where ID='${id}'`
                 con.query(sql, function(err,result,fields){
                     con.release();
-                    console.log(result);
                     if(err) console.log(err);
                     else callback(null,result);
                 })
