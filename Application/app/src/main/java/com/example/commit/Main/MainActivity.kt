@@ -32,11 +32,19 @@ MainActivity
 */
 package com.example.commit.Main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import com.example.commit.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        var getIntent:Intent=getIntent()
+
+        Log.d("test","id : ${getIntent.getStringExtra("id")} 로그인")
     }
 }

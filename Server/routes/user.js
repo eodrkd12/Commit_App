@@ -10,11 +10,13 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/login', function(req,res,next){
-  console.log(req.body.id)
+router.post('/login', function(req,res,next){
   db_user.login(req.body.id,function(err,result){
     if(err) console.log(err);
-    else res.send(result);
+    else {
+      var data=result[0]
+      res.send(data);
+    }
   })
 })
 
