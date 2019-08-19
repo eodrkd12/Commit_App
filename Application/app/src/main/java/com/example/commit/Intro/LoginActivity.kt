@@ -11,9 +11,28 @@ package com.example.commit.Intro
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.widget.Toast
+import com.example.commit.R
+import com.example.commit.Singleton.VolleyService
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
+        btn_login.setOnClickListener  {
+            var id:String=edit_id.text.toString()
+            var pw:String=edit_pw.text.toString()
+            VolleyService.loginReq(id,pw,this){success ->
+                if(success){
+                    Toast.makeText(this,"통신 성공",Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(this,"통신 실패",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }
