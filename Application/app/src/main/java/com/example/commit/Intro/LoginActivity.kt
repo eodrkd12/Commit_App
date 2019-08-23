@@ -31,7 +31,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        //버튼에 리스너 등록(버튼을 클릭했을 때 동작하는 함수)
         btn_login.setOnClickListener  {
+            //editText뷰로부터 값을 가져오는 과정
+            //xml파일에서 선언한 뷰의 id를 입력해야 함(* xml파일마다 중복된 id가 있으니 안헷갈리게 주의)
             var id:String=edit_id.text.toString()
             var pw:String=edit_pw.text.toString()
 
@@ -52,9 +55,13 @@ class LoginActivity : AppCompatActivity() {
                     }
                     3 -> {
                         //로그인 성공
+                        //Intent클래스를 이용하여 화면 전환
+                        //첫번째 파라미터는 this, 두번째 파라미터는 전환할 Activity)
                         var intent:Intent=Intent(this,MainActivity::class.java)
+                        //전환하면서 데이터 보내는 구문
                         intent.putExtra("id",id)
                         intent.putExtra("pw",pw)
+                        //전환하는 구문
                         startActivity(intent)
                     }
                 }

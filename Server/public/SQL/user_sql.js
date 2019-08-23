@@ -23,7 +23,6 @@ module.exports = function () {
             })
         }
         ,
-<<<<<<< HEAD
 
         update_user: function(pw,nickname){ /////////// 상원 : 회원정보수정 (최신화)
             pool.getConnection(function(err,con){
@@ -47,7 +46,6 @@ module.exports = function () {
             })
         },
 
-=======
         login: function(id,callback){
             pool.getConnection(function(err,con){
                 var sql=`select * from user where ID='${id}'`
@@ -59,7 +57,6 @@ module.exports = function () {
             })
         }
         ,
->>>>>>> master
         pool: pool
     }
 };
