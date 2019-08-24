@@ -13,6 +13,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.commit.Interface.RetrofitNetwork
 import com.example.commit.Main.MainActivity
@@ -30,6 +31,17 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        // 인승추가(계정찾기 intent 설정)
+        text_find.setOnClickListener {
+            var intent:Intent=Intent(this,AcFindActivity::class.java)
+            startActivity(intent)
+        }
+        //인승추가(도움말 버튼 클릭 시, 엑티비티 변환)
+        text_guide.setOnClickListener {
+            var intent:Intent=Intent(this,GuideActivity::class.java)
+            startActivity(intent)
+        }
 
         btn_login.setOnClickListener  {
             var id:String=edit_id.text.toString()
