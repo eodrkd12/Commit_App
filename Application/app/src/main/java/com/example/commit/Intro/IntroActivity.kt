@@ -10,6 +10,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.commit.R
+
 import kotlinx.android.synthetic.main.activity_intro.*
 
 class IntroActivity : AppCompatActivity() {
@@ -24,8 +25,8 @@ class IntroActivity : AppCompatActivity() {
         //버튼에 클릭리스너를 연결해주는 코드
         btn_join.setOnClickListener{
             //Intent : 다른 액티비티로 전환할 때 사용하는 클래스로 startActivity 메소드를 사용하여 액티비티 전환
-            //JoinActivity로 전환하는 코드
-            var intent:Intent=Intent(this,JoinActivity::class.java)
+            //Join1Activity로 전환하는 코드
+            var intent:Intent=Intent(this,Join1Activity::class.java)
             startActivity(intent)
         }
 
