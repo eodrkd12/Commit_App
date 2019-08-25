@@ -10,7 +10,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.commit.R
-import kotlinx.android.synthetic.main.activity_join.*
 
 class UniversityActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +17,9 @@ class UniversityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_university)
 
 
-        btn_confirm.setOnClickListener {
+        /*btn_confirm.setOnClickListener {
             var intent: Intent = Intent(this,JoinActivity::class.java)
             startActivity(intent)
-        }
+        }*/
     }
 }

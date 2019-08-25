@@ -58,17 +58,10 @@
             android:inputType="number"
             android:ems="10"
             android:id="@+id/edit_code"
-            app:layout_constraintEnd_toStartOf="@+id/text_timer"
-            android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_code" android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"/>
-    <TextView
-            android:text="5:00"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/text_timer" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
-            android:layout_marginRight="28dp" android:layout_marginBottom="52dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_code"/>
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_code"
+            android:layout_marginEnd="80dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="80dp"/>
     <Button
             android:text="인증하기"
             android:layout_width="wrap_content"

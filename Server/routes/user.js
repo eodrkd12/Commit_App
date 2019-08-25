@@ -20,6 +20,21 @@ router.post('/login', function(req,res,next){
   })
 })
 
+router.post('/check', function(req,res,next){
+  db_user.check(req.body.id,function(err,result){
+    if(err) console.log(err)
+    else 
+      res.send(result[0])
+  })
+})
+router.post('/check/nickname', function(req,res,next){
+  db_user.check_nickname(req.body.nickname,function(err,result){
+    if(err) console.log(err)
+    else 
+      res.send(result[0])
+  })
+})
+
 router.post('/', function(req,res,next){
   db_user.join(req.body.id,req.body.pw,req.body.name,req.body.birthday,req.body.gender,req.body.nickname,req.body.email,req.body.verified,req.body.university,req.body.grade,req.body.department,req.body.profile_image)
   res.send("success")

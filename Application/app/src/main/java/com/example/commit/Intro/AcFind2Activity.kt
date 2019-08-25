@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_acfind.*
 import kotlinx.android.synthetic.main.activity_acfind2.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
-class AcFindActivity2 : AppCompatActivity() {
+class AcFind2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_acfind2)

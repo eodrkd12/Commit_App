@@ -9,6 +9,7 @@ var userRouter = require('./routes/user');
 var join_roomRouter = require('./routes/join_room');
 var postRouter = require('./routes/post'); //라우터 파일 참조
 var attachmentRouter=require('./routes/attachment');
+var codeRouter=require('./routes/code');
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use('/user', userRouter);
 app.use('/join_room',join_roomRouter);
 app.use('/post',postRouter); // 라우터에 url 주소 지정
 app.use('/attachment',attachmentRouter);
+app.use('/code',codeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

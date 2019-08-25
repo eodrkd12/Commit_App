@@ -2,6 +2,7 @@ package com.example.commit.Singleton
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.android.volley.ParseError
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -17,9 +18,91 @@ import org.json.JSONObject
 
 object VolleyService {
 
+    //아이디 중복체크
+    fun idCheckReq(id:String,context: Context, success: (Int) -> Unit){
+        val url="http://172.30.1.42:3000/user/check"
+
+        val json=JSONObject()
+        json.put("id",id)
+
+        var request=object : JsonObjectRequest(Method.POST
+            , url
+            , json
+            , Response.Listener{
+                Toast.makeText(context,"중복된 ID입니다.",Toast.LENGTH_SHORT).show()
+                success(0)
+            }
+            , Response.ErrorListener {
+                if(it is com.android.volley.ParseError){
+                    Toast.makeText(context,"사용 가능한 ID입니다.",Toast.LENGTH_SHORT).show()
+                    success(1)
+                }
+            }
+        ) {
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+        }
+
+        Volley.newRequestQueue(context).add(request)
+    }
+    //닉네임 중복체크
+    fun nicknameCheckReq(nickname:String,context: Context, success: (Int) -> Unit){
+        val url="http://172.30.1.42:3000/user/check/nickname"
+
+        val json=JSONObject()
+        json.put("nickname",nickname)
+
+        var request=object : JsonObjectRequest(Method.POST
+            , url
+            , json
+            , Response.Listener{
+                Toast.makeText(context,"중복된 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                success(0)
+            }
+            , Response.ErrorListener {
+                if(it is com.android.volley.ParseError){
+                    Toast.makeText(context,"사용 가능한 닉네임입니다.",Toast.LENGTH_SHORT).show()
+                    success(1)
+                }
+            }
+        ) {
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+        }
+
+        Volley.newRequestQueue(context).add(request)
+    }
+
+    //이메일 인증 코드 요청
+    fun codeReq(context: Context, success: (String) -> Unit){
+        val url = "http://172.30.1.42:3000/code"//요청 URL
+
+        val json = JSONObject() // 서버로 전송할 json 객체
+
+        var request = object : JsonObjectRequest(Method.GET
+            , url
+            , json
+            , Response.Listener {
+                Log.d("test","코드 생성 ${it.toString()}")
+                success(it.getString("code"))
+            }
+            , Response.ErrorListener {
+                Log.d("test",it.toString())
+            }
+        ) {
+            override fun getBodyContentType(): String {
+                return "application/json"
+            }
+        }
+        //요청을 보내는 부분
+        Volley.newRequestQueue(context).add(request)
+    }
+
     //로그인 요청
     fun loginReq(id: String, pw: String, context: Context, success: (Int) -> Unit) {
-        val url = "http://192.168.0.21:3000/user/login"//요청 URL
+        val url = "http://172.30.1.42:3000/user/login"//요청 URL
 
         val json = JSONObject() // 서버로 전송할 json 객체
         json.put("id", id) // json 객체에 데이터 삽입, 첫번째 파라미터가 키, 두번째 파라미터가 값
@@ -54,10 +137,10 @@ object VolleyService {
         //요청을 보내는 부분
         Volley.newRequestQueue(context).add(request)
     }
-    //이메일로 아이디 찾기 ->상원
 
+    //이메일로 아이디 찾기 ->상원
     fun findReq(email:String,context: Context,success: (Int) -> Unit) {
-        val url = "http://192.168.25.2:3000/user"
+        val url = "http://172.30.1.42:3000/user"
 
         val json_search = JSONObject()
         json_search.put("email", email)
@@ -89,7 +172,7 @@ object VolleyService {
     } //ID만 찾을떄쓰는 함수
 
     fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
-        val url = "http://192.168.25.2:3000/user"
+        val url = "http://172.30.1.42:3000/user"
 
         val json_search2 = JSONObject()
         json_search2.put("id",id)
@@ -125,7 +208,7 @@ object VolleyService {
     }//비번 찾을때 함수
 
     fun check_num(number: Int, context: Context, success: (Int) -> Unit){
-        val url = "http://192.168.25.2:3000/user"
+        val url = "http://172.30.1.42:3000/user"
 
         val json_num =JSONObject()
         json_num.put("number",number)
@@ -158,7 +241,7 @@ object VolleyService {
     }
 
     fun change_pw(pw:String, pw2:String, context: Context,success: (Int) -> Unit){
-        val url = "http://192.168.25.2:3000/user"
+        val url = "http://172.30.1.42:3000/user"
 
         val json_ch = JSONObject()
         json_ch.put("pw",pw)
