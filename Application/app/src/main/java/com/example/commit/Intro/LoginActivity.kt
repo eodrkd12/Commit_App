@@ -13,6 +13,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.commit.Main.MainActivity
 import com.example.commit.R
@@ -26,6 +27,17 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         //버튼에 리스너 등록(버튼을 클릭했을 때 동작하는 함수)
+        // 인승추가(계정찾기 intent 설정)
+        text_find.setOnClickListener {
+            var intent:Intent=Intent(this,AcFindActivity::class.java)
+            startActivity(intent)
+        }
+        //인승추가(도움말 버튼 클릭 시, 엑티비티 변환)
+        text_guide.setOnClickListener {
+            var intent:Intent=Intent(this,GuideActivity::class.java)
+            startActivity(intent)
+        }
+
         btn_login.setOnClickListener  {
             //editText뷰로부터 값을 가져오는 과정
             //xml파일에서 선언한 뷰의 id를 입력해야 함(* xml파일마다 중복된 id가 있으니 안헷갈리게 주의)
