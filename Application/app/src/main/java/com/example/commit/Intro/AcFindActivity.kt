@@ -65,9 +65,10 @@ class AcFindActivity : AppCompatActivity() {
                         intent.putExtra("id",id)
                         intent.putExtra("email",email)
                         startActivity(intent)
+                        // 인증번호가 이메일로 가게끔하는건 미구현
                     }
                 }
             })
-        }
+        } // 이 함수는 pw을 찾기위함 AcFindActivity2로 이동하며 인증번호가 email로 보내어진다.
     }
 }

@@ -2,6 +2,7 @@ package com.example.commit.Singleton
 
 import android.content.Context
 import android.util.Log
+import com.android.volley.ParseError
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.ResponseDelivery
@@ -57,7 +58,7 @@ object VolleyService {
     //이메일로 아이디 찾기 ->상원
 
     fun findReq(email:String,context: Context,success: (Int) -> Unit) {
-        val url = "http://192.168.25.2:3000/user/find"
+        val url = "http://192.168.25.2:3000/user"
 
         val json_search = JSONObject()
         json_search.put("email", email)
@@ -89,7 +90,7 @@ object VolleyService {
     } //ID만 찾을떄쓰는 함수
 
     fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
-        val url = "http://172.30.1.42:3000/user/find"
+        val url = "http://192.168.25.2:3000/user"
 
         val json_search2 = JSONObject()
         json_search2.put("id",id)
@@ -123,4 +124,74 @@ object VolleyService {
         }
 
     }//비번 찾을때 함수
+
+    fun check_num(number: Int, context: Context, success: (Int) -> Unit){
+        val url = "http://192.168.25.2:3000/user"
+
+        val json_num =JSONObject()
+        json_num.put("number",number)
+
+        var jsonArray: JSONArray = JSONArray()
+        jsonArray.put(json_num)
+
+        var request = object : JsonObjectRequest(Method.POST
+            , url
+            , json_num
+            , Response.Listener {
+                if(number == it.getInt("number"))
+                    success(3)
+            }
+            ,Response.ErrorListener {
+                if(it is com.android.volley.TimeoutError){
+                    Log.d("test","TimeoutError")
+                    success(0)
+                }
+                else if(it is com.android.volley.ParseError){
+                    Log.d("test","ParseError")
+                    success(1)
+                }
+            })
+        {
+            override fun getBodyContentType(): String {
+                return "application/json_num"
+            }
+        }
+    }
+
+    fun change_pw(pw:String, pw2:String, context: Context,success: (Int) -> Unit){
+        val url = "http://192.168.25.2:3000/user"
+
+        val json_ch = JSONObject()
+        json_ch.put("pw",pw)
+
+        var jsonArray : JSONArray = JSONArray()
+        jsonArray.put(json_ch)
+
+        var request = object : JsonObjectRequest(Method.POST
+            , url
+            , json_ch
+            , Response.Listener {
+                if(pw != pw2){
+                    success(2)
+                }
+                else if(pw == pw2){
+                    success(3)
+                }
+            }
+            , Response.ErrorListener {
+                if(it is com.android.volley.TimeoutError){
+                    Log.d("test","TimeoutError")
+                    success(0)
+                }
+                else if(it is com.android.volley.ParseError){
+                    Log.d("test", "ParseError")
+                    success(1)
+                }
+            })
+        {
+            override fun getBodyContentType(): String {
+                return "application/json_ch"
+            }
+        }
+    }
 }
