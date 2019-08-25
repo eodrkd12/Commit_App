@@ -34,8 +34,8 @@
     <TextView
             android:text="웹메일"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="539dp"
-            tools:layout_editor_absoluteX="72dp" android:id="@+id/text_webmail"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_webmail"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/text_mail"
             app:layout_constraintTop_toTopOf="parent"
