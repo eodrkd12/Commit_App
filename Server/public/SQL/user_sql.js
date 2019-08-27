@@ -23,11 +23,31 @@ module.exports = function () {
             })
         }
         ,
-<<<<<<< HEAD
-
+        check: function(id,callback){
+            pool.getConnection(function(err,con){
+                var sql=`select ID from user where id='${id}'`
+                con.query(sql, function(err,result,fields){
+                    con.release();
+                    if(err) callback(err)
+                    else callback(null,result)
+                })
+            })
+        }
+        ,
+        check_nickname: function(nickname,callback){
+            pool.getConnection(function(err,con){
+                var sql=`select nickname from user where nickname='${nickname}'`
+                con.query(sql,function(err,result,fields){
+                    con.release();
+                    if(err) callback(err)
+                    else callback(null,result)
+                })
+            })
+        }
+        ,
         update_user: function(pw,nickname){ /////////// 상원 : 회원정보수정 (최신화)
             pool.getConnection(function(err,con){
-                var sql=`update user set pw='${pw} where nickname='${nickname} `;
+                var sql=`update user set pw='${pw} where nickname='${nickname}' `;
                 con.query(sql,function(err,result,field){
                     con.release();
                     if(err) console.log(err);
@@ -47,7 +67,6 @@ module.exports = function () {
             })
         },
 
-=======
         login: function(id,callback){
             pool.getConnection(function(err,con){
                 var sql=`select * from user where ID='${id}'`
@@ -59,7 +78,6 @@ module.exports = function () {
             })
         }
         ,
->>>>>>> master
         pool: pool
     }
 };

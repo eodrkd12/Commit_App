@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.commit">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -11,8 +11,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            android:usesCleartextTraffic="true"
-    >
+            android:usesCleartextTraffic="true">
+        <activity android:name=".Intro.Join3Activity">
+        </activity>
+        <activity android:name=".Intro.Join2Activity">
+        </activity>
+        <activity android:name=".Intro.Join1Activity">
+        </activity>
         <activity android:name=".Main.NoticeActivity">
         </activity>
         <activity android:name=".Main.PolicyActivity">
@@ -31,7 +36,7 @@
         </activity>
         <activity android:name=".Main.ProfileActivity">
         </activity>
-        <activity android:name=".Intro.IntroActivity">
+        <activity android:name=".Intro.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -43,6 +48,7 @@
         <activity android:name=".Intro.LoginActivity"/>
         <activity android:name=".Intro.AcFindActivity"/>
         <activity android:name=".Intro.UniversityActivity"/>
+        <activity android:name=".Intro.IntroActivity"/>
         <activity android:name=".Main.MainActivity"/>
     </application>
 

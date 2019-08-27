@@ -61,7 +61,7 @@ class AcFindActivity : AppCompatActivity() {
                     }
                     3->{
                         //인증성공
-                        var intent:Intent = Intent(this,AcFindActivity2::class.java)
+                        var intent:Intent = Intent(this,AcFind2Activity::class.java)
                         intent.putExtra("id",id)
                         intent.putExtra("email",email)
                         startActivity(intent)

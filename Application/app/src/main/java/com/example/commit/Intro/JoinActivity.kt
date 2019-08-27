@@ -14,11 +14,24 @@ JoinActivity
 */
 package com.example.commit.Intro
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.example.commit.R
 
 class JoinActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        /*btn_confirm.setOnClickListener {
+            var intent: Intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+        }
+        btn_university.setOnClickListener {
+            var intent: Intent = Intent(this,UniversityActivity::class.java)
+            startActivity(intent)
+        }*/
+
     }
 }
