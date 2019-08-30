@@ -39,15 +39,26 @@ router.post('/', function(req,res,next){
   db_user.join(req.body.id,req.body.pw,req.body.name,req.body.birthday,req.body.gender,req.body.nickname,req.body.email,req.body.verified,req.body.university,req.body.grade,req.body.department,req.body.profile_image)
   res.send("success")
 })
+//상원
 
-router.put('/',function(req,res,next){ // 상원 회원정보수정 (최신화)
+router.post('/find_id',function(req,res,next){ // 이메일로 id찾기
+  db_user.find_id(req.body.email,function(err,result){
+    if(err) console.log(err)
+    else{
+      res.send(result[0])
+    }
+  })
+})
+
+router.put('/',function(req,res,next){ // 회원정보수정 (최신화)
   db_user.update_user(req.body.pw,req.body.nickname)
   res.send('success');
 })
 
-router.delete('/',function(req,res,next){ // 상원 회원정보 삭제 (최신화)
+router.delete('/',function(req,res,next){ //회원정보 삭제 (최신화)
   db_user.delete_user(req.body.id)
   res.send('success');
 })
 
+//상원
 module.exports = router;
