@@ -139,28 +139,26 @@ object VolleyService {
     }
 
     //이메일로 아이디 찾기 ->상원
-    fun findReq(email:String,context: Context,success: (Int) -> Unit) {
-        val url = "http://172.30.1.42:3000/user"
+    fun findReq(email:String,context: Context,success: (String) -> Unit) {
+        val url = "http://172.30.1.42:3000/user/find_id"
 
         val json_search = JSONObject()
         json_search.put("email", email)
-
-        var jsonArray: JSONArray = JSONArray()
-        jsonArray.put(json_search)
 
         var request = object : JsonObjectRequest(Method.POST
             , url
             , json_search
             , Response.Listener {
-                if (email != it.getString("email"))
-                    success(1)
-                else if (email == it.getString("email"))
-                    success(2)
+                    success(it.getString("id")) // value 값이 넘어간다
             }
             , Response.ErrorListener {
                 if (it is com.android.volley.TimeoutError) {
                     Log.d("test", "TimeoutError")
-                    success(0)
+                    success("Time")
+                }
+            else if(it is com.android.volley.ParseError){
+                    Log.d("test", "ParseError")
+                    success("Parse")
                 }
             })
         {
@@ -168,6 +166,7 @@ object VolleyService {
                 return "applycation/json_search"
             }
         }
+        Volley.newRequestQueue(context).add(request)
 
     } //ID만 찾을떄쓰는 함수
 
@@ -204,6 +203,7 @@ object VolleyService {
                 return "applycation/json_search2"
             }
         }
+        Volley.newRequestQueue(context).add(request)
 
     }//비번 찾을때 함수
 
@@ -238,6 +238,7 @@ object VolleyService {
                 return "application/json_num"
             }
         }
+        Volley.newRequestQueue(context).add(request)
     }
 
     fun change_pw(pw:String, pw2:String, context: Context,success: (Int) -> Unit){
@@ -275,5 +276,6 @@ object VolleyService {
                 return "application/json_ch"
             }
         }
+        Volley.newRequestQueue(context).add(request)
     }
 }
