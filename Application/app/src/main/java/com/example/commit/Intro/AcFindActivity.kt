@@ -53,13 +53,14 @@ class AcFindActivity : AppCompatActivity() {
 
         button_search_pw.setOnClickListener {
             var id:String=editText2.text.toString()
+            var pw:String=editText5.text.toString()
             var email:String=editText3.text.toString()
 
             if(email.contains("@",true)){
                 VolleyService.codeReq(this,{ success ->
                     code=success
 
-                    var mailSender: GMailSender = GMailSender()////////////////////매개변수 ??
+                    var mailSender: GMailSender = GMailSender(id,pw,code)
                     mailSender.sendMail(
                             "Uniting 이메일 인증"
                             ,"안녕하세요.\n" +
@@ -69,6 +70,13 @@ class AcFindActivity : AppCompatActivity() {
                             , editText3.text.toString()
                     )
                 })
+
+                var intent:Intent= Intent(this,AcFind2Activity::class.java)
+                intent.putExtra("id",id)
+                intent.putExtra("pw",pw)
+                intent.putExtra("email",email)
+                intent.putExtra("code",code)
+                startActivity(intent)
             } else{
                 Toast.makeText(this,"올바른 이메일을 입력해주세요",Toast.LENGTH_SHORT).show()
             }
