@@ -14,11 +14,14 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.Toast
+import com.example.commit.Class.GMailSender
 import com.example.commit.R
 import com.example.commit.Singleton.VolleyService
 import kotlinx.android.synthetic.main.activity_acfind.*
 
 class AcFindActivity : AppCompatActivity() {
+
+    var code:String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,30 +55,23 @@ class AcFindActivity : AppCompatActivity() {
             var id:String=editText2.text.toString()
             var email:String=editText3.text.toString()
 
-            VolleyService.findReq2(id, email,this, {success ->
-                when(success){
-                    0 ->{
-                        //통신실패
-                        Toast.makeText(this, "서버와의 통신에 실패했습니다.",Toast.LENGTH_SHORT).show()
-                    }
-                    1 ->{
-                        //인증실패
-                        Toast.makeText(this, "ID를 확인해 주세요",Toast.LENGTH_SHORT).show()
-                    }
-                    2 ->{
-                        //인증실패
-                        Toast.makeText(this, "email을 확인해 주세요",Toast.LENGTH_SHORT).show()
-                    }
-                    3->{
-                        //인증성공
-                        var intent:Intent = Intent(this,AcFind2Activity::class.java)
-                        intent.putExtra("id",id)
-                        intent.putExtra("email",email)
-                        startActivity(intent)
-                        // 인증번호가 이메일로 가게끔하는건 미구현
-                    }
-                }
-            })
+            if(email.contains("@",true)){
+                VolleyService.codeReq(this,{ success ->
+                    code=success
+
+                    var mailSender: GMailSender = GMailSender()////////////////////매개변수 ??
+                    mailSender.sendMail(
+                            "Uniting 이메일 인증"
+                            ,"안녕하세요.\n" +
+                            "아래 인증 코드를 애플리케이션에서 입력하여 주세요\n" +
+                            "인증코드 : [${code}]\n" +
+                            "감사합니다."
+                            , editText3.text.toString()
+                    )
+                })
+            } else{
+                Toast.makeText(this,"올바른 이메일을 입력해주세요",Toast.LENGTH_SHORT).show()
+            }
         } // 이 함수는 pw을 찾기위함 AcFindActivity2로 이동하며 인증번호가 email로 보내어진다.
     }
 }
