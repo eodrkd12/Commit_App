@@ -12,6 +12,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".IntroActivity.Join3Activity">
+        </activity>
         <activity android:name=".IntroActivity.Join1Activity">
         </activity>
         <activity android:name=".IntroActivity.Join5Activity">

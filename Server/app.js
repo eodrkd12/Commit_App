@@ -11,6 +11,7 @@ var postRouter = require('./routes/post'); //라우터 파일 참조
 var attachmentRouter=require('./routes/attachment');
 var codeRouter=require('./routes/code');
 var universityRouter=require('./routes/university')
+var departmentRouter=require('./routes/department')
 var app = express();
 
 // view engine setup
@@ -30,6 +31,7 @@ app.use('/post',postRouter); // 라우터에 url 주소 지정
 app.use('/attachment',attachmentRouter);
 app.use('/code',codeRouter);
 app.use('/university',universityRouter)
+app.use('/department',departmentRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
