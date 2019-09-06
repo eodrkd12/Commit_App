@@ -16,13 +16,11 @@ class AcFind2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_acfind2)
 
         var code = intent.getStringExtra("code")
-        var pw = intent.getStringExtra("pw")
 
         button_num.setOnClickListener {
             if (code == editText4.text.toString()){
                 var intent=Intent(this,AcFind3Activity::class.java)
                 code="만료"
-                intent.putExtra("pw",pw)
                 startActivity(intent)
             }
             else if(code == "만료"){

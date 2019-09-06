@@ -170,7 +170,7 @@ object VolleyService {
 
     } //ID만 찾을떄쓰는 함수
 
-    fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
+    /*fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
         val url = "http://172.30.1.42:3000/user"
 
         val json_search2 = JSONObject()
@@ -277,5 +277,5 @@ object VolleyService {
             }
         }
         Volley.newRequestQueue(context).add(request)
-    }
+    }*/
 }

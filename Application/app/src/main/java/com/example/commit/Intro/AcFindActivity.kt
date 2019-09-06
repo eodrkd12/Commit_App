@@ -53,14 +53,13 @@ class AcFindActivity : AppCompatActivity() {
 
         button_search_pw.setOnClickListener {
             var id:String=editText2.text.toString()
-            var pw:String=editText5.text.toString()
             var email:String=editText3.text.toString()
 
             if(email.contains("@",true)){
                 VolleyService.codeReq(this,{ success ->
                     code=success
 
-                    var mailSender: GMailSender = GMailSender(id,pw,code)
+                    var mailSender: GMailSender = GMailSender("eodrkd12@gmail.com","ioioko123!",code)
                     mailSender.sendMail(
                             "Uniting 이메일 인증"
                             ,"안녕하세요.\n" +
@@ -73,7 +72,6 @@ class AcFindActivity : AppCompatActivity() {
 
                 var intent:Intent= Intent(this,AcFind2Activity::class.java)
                 intent.putExtra("id",id)
-                intent.putExtra("pw",pw)
                 intent.putExtra("email",email)
                 intent.putExtra("code",code)
                 startActivity(intent)
