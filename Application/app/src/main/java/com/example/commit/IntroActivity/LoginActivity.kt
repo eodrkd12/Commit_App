@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
         //인승추가(도움말 버튼 클릭 시, 엑티비티 변환)
         text_guide.setOnClickListener {
-            var intent:Intent=Intent(this,GuideActivity::class.java)
+            var intent:Intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
 

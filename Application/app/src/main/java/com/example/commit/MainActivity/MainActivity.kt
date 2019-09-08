@@ -32,19 +32,25 @@ MainActivity
 */
 package com.example.commit.MainActivity
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.example.commit.R
+import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v4.app.FragmentPagerAdapter
+import com.example.commit.Adapter.MyPagerAdapter
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var getIntent:Intent=getIntent()
+        val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
+        pager_content.adapter = fragmentAdapter
 
-        Log.d("test","id : ${getIntent.getStringExtra("id")} 로그인")
+        tablayout.setupWithViewPager(pager_content)
+
+        //var getIntent:Intent=getIntent()
+        // Log.d("test","id : ${getIntent.getStringExtra("id")} 로그인")
     }
 }
