@@ -1,4 +1,4 @@
-package com.example.commit.IntroActivity
+package com.example.commit.Intro
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
 import com.example.commit.R
+import kotlinx.android.synthetic.main.activity_intro.*
+import java.time.Duration
 
 class SplashActivity: AppCompatActivity() {
     val Duration:Long = 2000

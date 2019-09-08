@@ -4,7 +4,7 @@ Guide Activity
 2. 다음버튼 -> 다음 GuideActivity로 전환
 3. 마지막 GuideActivity 다음에는 LoginActivity로 전환
  */
-package com.example.commit.IntroActivity
+package com.example.commit.Intro
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
