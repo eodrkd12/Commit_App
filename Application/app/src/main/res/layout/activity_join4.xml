@@ -186,10 +186,12 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/edit_nickname" android:textSize="15dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/text_nickname" android:layout_marginStart="8dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="@+id/guideline6" android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/btn_nickname"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_nickname"/>
     <Button
             android:text="중복확인"
             android:layout_width="wrap_content"
@@ -205,7 +207,8 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/text_webmail"
             app:layout_constraintStart_toStartOf="@+id/guideline6" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toStartOf="@+id/btn_nickname"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintHorizontal_bias="0.547"/>
     <Button
             android:text="다음"
             android:layout_width="wrap_content"
