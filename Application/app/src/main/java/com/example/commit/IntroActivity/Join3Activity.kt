@@ -17,8 +17,6 @@ import org.json.JSONObject
 
 class Join3Activity : AppCompatActivity() {
 
-    //test comment
-
     var departmentAdapter = DepartmentAdapter()
     var departmentArray: JSONArray? = null
 
