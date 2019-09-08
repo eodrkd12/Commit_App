@@ -44,9 +44,9 @@ module.exports = function () {
                 })
             })
         }
-        ,
+        ,        
 
-        find_id: function(email,callback){
+        find_id: function(email,callback){ //상원
             pool.getConnection(function(err,con){
                 var sql=`select id from user where email='${email}'`
                 con.query(sql,function(err,result,field){
@@ -57,13 +57,24 @@ module.exports = function () {
              })
          }
         ,
-        update_user: function(pw,nickname){ /////////// 상원 : 회원정보수정 (최신화)
+        find_pw: function(id,callback){//상원
             pool.getConnection(function(err,con){
-                var sql=`update user set pw='${pw} where nickname='${nickname}' `;
+                var sql=`select id from user where id='${id}'AND email='${email}'`
+                con.query(sql, function(err,result,fields){
+                    con.release();
+                    if(err) console.log(err)
+                    else callback(null,result)
+                })
+            })
+        }
+        ,
+        update_user: function(pw,callback){ /////////// 상원 : 회원정보수정 (최신화)
+            pool.getConnection(function(err,con){
+                var sql=`update user set pw='${pw} `;
                 con.query(sql,function(err,result,field){
                     con.release();
-                    if(err) console.log(err);
-                    else console.log('회원정보 수정');
+                    if(err) console.log(err)
+                    else callback(null,result)
                 })
             })
         },
@@ -73,7 +84,7 @@ module.exports = function () {
                 var sql=`delete from user where id='${id}`;
                 con.query(sql,function(err,result,field){
                     con.release();
-                    if(err) console.log(err);
+                    if(err) console.log(err)
                     else console.log('회원 탈퇴')
                 })
             })
@@ -84,8 +95,8 @@ module.exports = function () {
                 var sql=`select * from user where ID='${id}'`
                 con.query(sql, function(err,result,fields){
                     con.release();
-                    if(err) console.log(err);
-                    else callback(null,result);
+                    if(err) console.log(err)
+                    else callback(null,result)
                 })
             })
         }

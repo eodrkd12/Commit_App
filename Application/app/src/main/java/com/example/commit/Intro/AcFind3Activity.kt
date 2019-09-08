@@ -18,6 +18,7 @@ class AcFind3Activity : AppCompatActivity(){
 
         button_check2.setOnClickListener {
             if(editText7.text.toString()==editText8.text.toString()){
+                VolleyService.
 
                 //재설정한 비밀번호를 서버에 덮어씌우기
                 var intent = Intent(this,LoginActivity::class.java)

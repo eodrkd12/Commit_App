@@ -170,8 +170,8 @@ object VolleyService {
 
     } //ID만 찾을떄쓰는 함수
 
-    /*fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
-        val url = "http://172.30.1.42:3000/user"
+    fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
+        val url = "http://172.30.1.42:3000/user/find_pw"
 
         val json_search2 = JSONObject()
         json_search2.put("id",id)
@@ -207,42 +207,8 @@ object VolleyService {
 
     }//비번 찾을때 함수
 
-    fun check_num(number: Int, context: Context, success: (Int) -> Unit){
-        val url = "http://172.30.1.42:3000/user"
-
-        val json_num =JSONObject()
-        json_num.put("number",number)
-
-        var jsonArray: JSONArray = JSONArray()
-        jsonArray.put(json_num)
-
-        var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json_num
-            , Response.Listener {
-                if(number == it.getInt("number"))
-                    success(3)
-            }
-            ,Response.ErrorListener {
-                if(it is com.android.volley.TimeoutError){
-                    Log.d("test","TimeoutError")
-                    success(0)
-                }
-                else if(it is com.android.volley.ParseError){
-                    Log.d("test","ParseError")
-                    success(1)
-                }
-            })
-        {
-            override fun getBodyContentType(): String {
-                return "application/json_num"
-            }
-        }
-        Volley.newRequestQueue(context).add(request)
-    }
-
     fun change_pw(pw:String, pw2:String, context: Context,success: (Int) -> Unit){
-        val url = "http://172.30.1.42:3000/user"
+        val url = "http://172.30.1.42:3000/user/update_user"
 
         val json_ch = JSONObject()
         json_ch.put("pw",pw)
@@ -277,5 +243,5 @@ object VolleyService {
             }
         }
         Volley.newRequestQueue(context).add(request)
-    }*/
+    }
 }

@@ -55,29 +55,40 @@ class AcFindActivity : AppCompatActivity() {
             var id:String=editText2.text.toString()
             var email:String=editText3.text.toString()
 
-            if(email.contains("@",true)){
-                VolleyService.codeReq(this,{ success ->
-                    code=success
+            VolleyService.findReq2(id,email,this, {success ->
+                when(success){
+                    0 -> {
+                        Toast.makeText(this,"통신과 연결이 실패했습니다.",Toast.LENGTH_SHORT).show()
+                    }
+                    1-> {
+                        Toast.makeText(this,"ID가 존재 하지 않습니다.",Toast.LENGTH_SHORT).show()
+                    }
+                    2 -> {
+                        Toast.makeText(this,"email을 다시 확인 해주세요",Toast.LENGTH_SHORT).show()
+                    }
+                    3 -> {
+                        VolleyService.codeReq(this,{ success ->
+                            code=success
 
-                    var mailSender: GMailSender = GMailSender("eodrkd12@gmail.com","ioioko123!",code)
-                    mailSender.sendMail(
-                            "Uniting 이메일 인증"
-                            ,"안녕하세요.\n" +
-                            "아래 인증 코드를 애플리케이션에서 입력하여 주세요\n" +
-                            "인증코드 : [${code}]\n" +
-                            "감사합니다."
-                            , editText3.text.toString()
-                    )
-                })
+                            var mailSender: GMailSender = GMailSender("eodrkd12@gmail.com","ioioko123!",code)
+                            mailSender.sendMail(
+                                    "Uniting 이메일 인증"
+                                    ,"안녕하세요.\n" +
+                                    "아래 인증 코드를 애플리케이션에서 입력하여 주세요\n" +
+                                    "인증코드 : [${code}]\n" +
+                                    "감사합니다."
+                                    , editText3.text.toString()
+                            )
+                        })
 
-                var intent:Intent= Intent(this,AcFind2Activity::class.java)
-                intent.putExtra("id",id)
-                intent.putExtra("email",email)
-                intent.putExtra("code",code)
-                startActivity(intent)
-            } else{
-                Toast.makeText(this,"올바른 이메일을 입력해주세요",Toast.LENGTH_SHORT).show()
-            }
+                        var intent:Intent= Intent(this,AcFind2Activity::class.java)
+                        intent.putExtra("id",id)
+                        intent.putExtra("email",email)
+                        intent.putExtra("code",code)
+                        startActivity(intent)
+                    }
+                }
+            })
         } // 이 함수는 pw을 찾기위함 AcFindActivity2로 이동하며 인증번호가 email로 보내어진다.
     }
 }
