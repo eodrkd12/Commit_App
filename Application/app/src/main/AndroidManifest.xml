@@ -12,11 +12,15 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".Intro.Join3Activity">
+        <activity android:name=".IntroActivity.Join3Activity">
         </activity>
-        <activity android:name=".Intro.Join2Activity">
+        <activity android:name=".IntroActivity.Join1Activity">
         </activity>
-        <activity android:name=".Intro.Join1Activity">
+        <activity android:name=".IntroActivity.Join5Activity">
+        </activity>
+        <activity android:name=".IntroActivity.Join4Activity">
+        </activity>
+        <activity android:name=".IntroActivity.Join2Activity">
         </activity>
         <activity android:name=".Main.NoticeActivity">
         </activity>
@@ -36,19 +40,19 @@
         </activity>
         <activity android:name=".Main.ProfileActivity">
         </activity>
-        <activity android:name=".Intro.SplashActivity">
+        <activity android:name=".IntroActivity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Intro.GuideActivity"/>
-        <activity android:name=".Intro.JoinActivity"/>
-        <activity android:name=".Intro.LoginActivity"/>
-        <activity android:name=".Intro.AcFindActivity"/>
-        <activity android:name=".Intro.UniversityActivity"/>
-        <activity android:name=".Intro.IntroActivity"/>
+        <activity android:name=".IntroActivity.GuideActivity"/>
+        <activity android:name=".IntroActivity.JoinActivity"/>
+        <activity android:name=".IntroActivity.LoginActivity"/>
+        <activity android:name=".IntroActivity.AcFindActivity"/>
+        <activity android:name=".IntroActivity.UniversityActivity"/>
+        <activity android:name=".IntroActivity.IntroActivity"/>
         <activity android:name=".Main.MainActivity"/>
     </application>
 
