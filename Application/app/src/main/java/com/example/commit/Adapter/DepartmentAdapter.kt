@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.commit.ListItem.UniversityItem
+import com.example.commit.ListItem.DepartmentItem
 import com.example.commit.R
 
-class UniversityAdapter : BaseAdapter(){
+class DepartmentAdapter : BaseAdapter(){
 
-    private var universityList = ArrayList<UniversityItem>()
+    private var departmentList = ArrayList<DepartmentItem>()
 
     override fun getCount(): Int {
-        return universityList.size
+        return departmentList.size
     }
 
     override fun getItemId(position: Int): Long {
@@ -22,7 +22,7 @@ class UniversityAdapter : BaseAdapter(){
     }
 
     override fun getItem(position: Int): Any {
-        return universityList.get(position)
+        return departmentList.get(position)
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -32,28 +32,28 @@ class UniversityAdapter : BaseAdapter(){
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (view == null) {
             val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.item_university, parent, false)
+            view = inflater.inflate(R.layout.item_department, parent, false)
         }
 
-        var textView=view?.findViewById(R.id.text_university) as TextView
+        var textView=view?.findViewById(R.id.text_department) as TextView
 
-        var item=universityList[position]
+        var item=departmentList[position]
 
-        textView.setText(item.university)
+        textView.setText(item.department)
 
         return view
     }
 
     fun addItem(text: String,enable: Boolean){
-        val item=UniversityItem()
+        val item=DepartmentItem()
 
-        item.university=text
+        item.department=text
         item.enable=enable
 
-        universityList.add(item)
+        departmentList.add(item)
     }
 
     fun clear(){
-        universityList.clear()
+        departmentList.clear()
     }
 }

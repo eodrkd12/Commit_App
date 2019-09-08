@@ -30,7 +30,7 @@ MainActivity
 
 4. 최하단 : 탭(홈,채팅,설정)
 */
-package com.example.commit.Main
+package com.example.commit.MainActivity
 
 import android.content.Intent
 import android.os.Bundle

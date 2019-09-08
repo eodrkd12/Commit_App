@@ -3,6 +3,7 @@ package com.example.commit.IntroActivity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.commit.Class.GMailSender
 import com.example.commit.R
@@ -12,15 +13,20 @@ import kotlinx.android.synthetic.main.activity_join2.*
 class Join2Activity : AppCompatActivity() {
 
     var code:String=""
+    var webMail:String?=null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join2)
 
-        btn_email.setOnClickListener {
-            var email: String = edit_email.text.toString()
+        var getIntent=intent
 
-            if (email.contains("@", true)) {
+        var universityName=getIntent.getStringExtra("university_name")
+        text_address.text=getIntent.getStringExtra("web_mail")
+
+        btn_webmail.setOnClickListener {
+            webMail= edit_webmail.text.toString()+text_address.text.toString()
+            if (edit_webmail.text.toString()!="") {
                 //@가 있는 경우
                 VolleyService.codeReq(this, { success ->
                     code=success
@@ -33,10 +39,10 @@ class Join2Activity : AppCompatActivity() {
                                 "아래 인증 코드를 애플리케이션에서 입력하여 회원가입을 진행해주십시오.\n" +
                                 "인증코드 : [${code}]\n" +
                                 "감사합니다."
-                        , edit_email.text.toString()
+                        , webMail!!
                     )
 
-                    Toast.makeText(this,"인증번호를 입력해주세요.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"인증번호를 전송하였습니다.",Toast.LENGTH_SHORT).show()
                 })
             } else {
                 Toast.makeText(this, "올바른 이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -45,8 +51,11 @@ class Join2Activity : AppCompatActivity() {
 
         btn_code.setOnClickListener{
             if (code==edit_code.text.toString()){
-                var intent=Intent(this,Join4Activity::class.java)
+                var intent=Intent(this,Join3Activity::class.java)
                 code="만료"
+                //Log.d("test","${universityName} / ${webMail}")
+                intent.putExtra("university_name",universityName)
+                intent.putExtra("web_mail",webMail)
                 startActivity(intent)
             }
             else if(code=="만료"){
