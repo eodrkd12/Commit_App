@@ -1,13 +1,13 @@
-package com.example.commit.Intro
+package com.example.commit.MainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.commit.R
 
-class Join3Activity : AppCompatActivity() {
+class QuestionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_join3)
+        setContentView(R.layout.activity_question)
     }
 }

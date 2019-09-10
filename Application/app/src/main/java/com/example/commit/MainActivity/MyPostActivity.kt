@@ -3,7 +3,7 @@
 스터디, 장터, 아무거나 별로 영역구분
 1. 게시글 리스트 -> PostActivity(관리자 모드)
 */
-package com.example.commit.Main
+package com.example.commit.MainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

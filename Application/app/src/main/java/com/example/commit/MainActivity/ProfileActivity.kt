@@ -9,7 +9,7 @@ ListView
     (5) 이메일
 3. 재인증
  */
-package com.example.commit.Main
+package com.example.commit.MainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

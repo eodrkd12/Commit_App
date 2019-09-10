@@ -5,7 +5,7 @@ AcFindActivity
                                 -> (새로운 엑티비티 전환 후) -> 인증번호 입력 후 확인  -> 새로운 비밀번호 입력 및 확인 -> LoginActivity 로 이동
 
 */
-package com.example.commit.Intro
+package com.example.commit.IntroActivity
 
 import android.content.DialogInterface
 import android.content.Intent
