@@ -68,9 +68,9 @@ module.exports = function () {
             })
         }
         ,
-        update_user: function(pw,callback){ /////////// 상원 : 회원정보수정 (최신화)
+        update_user: function(id,pw,callback){ /////////// 상원 : 회원정보수정 (최신화)
             pool.getConnection(function(err,con){
-                var sql=`update user set pw='${pw} `;
+                var sql=`update user set pw='${pw} where id='${id}`;
                 con.query(sql,function(err,result,field){
                     con.release();
                     if(err) console.log(err)
