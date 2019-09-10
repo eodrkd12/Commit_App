@@ -59,7 +59,7 @@ module.exports = function () {
         ,
         find_pw: function(id,callback){//상원
             pool.getConnection(function(err,con){
-                var sql=`select id from user where id='${id}'AND email='${email}'`
+                var sql=`select email from user where id='${id}`
                 con.query(sql, function(err,result,fields){
                     con.release();
                     if(err) console.log(err)
@@ -68,16 +68,28 @@ module.exports = function () {
             })
         }
         ,
-        update_user: function(id,pw,callback){ /////////// 상원 : 회원정보수정 (최신화)
+
+        update_pw: function(id,pw,callback){//상원
             pool.getConnection(function(err,con){
-                var sql=`update user set pw='${pw} where id='${id}`;
+                var sql=`update user set pw='${pw} where id='${id}`
                 con.query(sql,function(err,result,field){
                     con.release();
                     if(err) console.log(err)
-                    else callback(null,result)
+                    else console.log("비밀번호 변경 성공")
                 })
             })
-        },
+        }
+        ,
+        /*update_user: function(id,pw,callback){ /////////// 상원 : 회원정보수정 (최신화)
+            pool.getConnection(function(err,con){
+                var sql=`update user set pw='${pw} where id='${id}`
+                con.query(sql,function(err,result,field){
+                    con.release();
+                    if(err) console.log(err)
+                    else console.log("회원가입 완료")
+                })
+            })
+        },*/
 
         delete_user: function(id){ ////// 상원 : 회원삭제 (최신화)
             pool.getConnection(function(err,con){

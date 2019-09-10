@@ -8,6 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d6e99200-dc46-4d6a-bbd8-6aecbdd54bae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind2Activity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind2Activity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind3Activity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind3Activity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/commit/Singleton/VolleyService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/commit/Singleton/VolleyService.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +20,25 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFindActivity.kt">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="634">
+                    <caret line="76" column="69" lean-forward="true" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_XL_API_29" />
   <component name="ExternalProjectsData">
@@ -54,13 +76,16 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_acfind.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/commit/Intro/AcFind2Activity.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/commit/Intro/AcFindActivity.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/commit/Singleton/VolleyService.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/commit/Intro/AcFind3Activity.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind2Activity.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/commit/Singleton/VolleyService.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind3Activity.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="9" />
+    <option name="y" value="45" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -71,6 +96,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -94,7 +120,7 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="commit" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="Intro" type="462c0819:PsiDirectoryNode" />
+              <item name="IntroActivity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -103,12 +129,22 @@
               <item name="commit" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="Singleton" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -220,10 +256,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2211111" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.104477614" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -235,7 +271,7 @@
       <window_info anchor="bottom" id="TODO" order="1" weight="0.23618636" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="4" visible="true" weight="0.28776187" />
+      <window_info anchor="bottom" id="Build" order="4" visible="true" weight="0.28277355" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Logcat" order="7" />
@@ -322,30 +358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_acfind2.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_acfind3.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="55" column="59" lean-forward="true" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_acfind.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/commit/Intro/AcFindActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="707">
@@ -412,18 +424,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_acfind2.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="51" lean-forward="true" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_acfind.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFindActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="76" column="69" lean-forward="true" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_acfind3.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="55" column="59" lean-forward="true" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind3Activity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="16" column="49" lean-forward="true" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/commit/IntroActivity/AcFind2Activity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/commit/Singleton/VolleyService.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        <state relative-caret-position="213">
+          <caret line="218" column="35" lean-forward="true" selection-start-line="218" selection-start-column="35" selection-end-line="218" selection-end-column="35" />
           <folding>
-            <element signature="e#659#1459#0" />
-            <element signature="e#1557#2380#0" />
-            <element signature="e#2461#3129#0" />
-            <element signature="e#3227#4634#0" />
-            <element signature="e#4732#5668#0" />
-            <element signature="e#5770#6880#0" />
-            <element signature="e#6974#8060#0" />
+            <element signature="e#734#1535#0" />
+            <element signature="e#1637#2461#0" />
+            <element signature="e#2543#3200#0" />
+            <element signature="e#3298#4716#0" />
+            <element signature="e#5003#6367#0" />
+            <element signature="e#6470#7021#0" />
+            <element signature="e#7196#7826#0" />
+            <element signature="e#7955#8883#0" />
+            <element signature="e#9297#10386#0" />
+            <element signature="e#10153#10564#0" />
           </folding>
         </state>
       </provider>

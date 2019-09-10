@@ -41,7 +41,7 @@ router.post('/', function(req,res,next){
 })
 //상원
 
-router.post('/find_pw',function(req,res,next){
+router.post('/find_pw',function(req,res,next){//상원
   db_user.find_pw(req.body.id,function(err,result){
     if(err) console.log(err)
     else{
@@ -59,10 +59,10 @@ router.post('/find_id',function(req,res,next){ // 이메일로 id찾기
   })
 })
 
-router.put('/update_user',function(req,res,next){ // 회원정보수정 (최신화)
-  db_user.update_user(req.body.pw,function(err,result){
+router.put('/update_pw',function(req,res,next){ // 비밀번호 수정
+  db_user.update_pw(req.body.id,req.body.pw,function(err,result){
     if(err) console.log(err)
-    else res.send(result[0])
+    else res.send("success")
   })
 })
 

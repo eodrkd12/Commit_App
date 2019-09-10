@@ -29,18 +29,18 @@ object VolleyService {
         json.put("id", id)
 
         var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json
-            , Response.Listener {
-                Toast.makeText(context, "중복된 ID입니다.", Toast.LENGTH_SHORT).show()
-                success(0)
+                , url
+                , json
+                , Response.Listener {
+            Toast.makeText(context, "중복된 ID입니다.", Toast.LENGTH_SHORT).show()
+            success(0)
+        }
+                , Response.ErrorListener {
+            if (it is com.android.volley.ParseError) {
+                Toast.makeText(context, "사용 가능한 ID입니다.", Toast.LENGTH_SHORT).show()
+                success(1)
             }
-            , Response.ErrorListener {
-                if (it is com.android.volley.ParseError) {
-                    Toast.makeText(context, "사용 가능한 ID입니다.", Toast.LENGTH_SHORT).show()
-                    success(1)
-                }
-            }
+        }
         ) {
             override fun getBodyContentType(): String {
                 return "application/json"
@@ -58,18 +58,18 @@ object VolleyService {
         json.put("nickname", nickname)
 
         var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json
-            , Response.Listener {
-                Toast.makeText(context, "중복된 닉네임입니다.", Toast.LENGTH_SHORT).show()
-                success(0)
+                , url
+                , json
+                , Response.Listener {
+            Toast.makeText(context, "중복된 닉네임입니다.", Toast.LENGTH_SHORT).show()
+            success(0)
+        }
+                , Response.ErrorListener {
+            if (it is com.android.volley.ParseError) {
+                Toast.makeText(context, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show()
+                success(1)
             }
-            , Response.ErrorListener {
-                if (it is com.android.volley.ParseError) {
-                    Toast.makeText(context, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show()
-                    success(1)
-                }
-            }
+        }
         ) {
             override fun getBodyContentType(): String {
                 return "application/json"
@@ -86,15 +86,15 @@ object VolleyService {
         val json = JSONObject() // 서버로 전송할 json 객체
 
         var request = object : JsonObjectRequest(Method.GET
-            , url
-            , json
-            , Response.Listener {
-                Log.d("test", "코드 생성 ${it.toString()}")
-                success(it.getString("code"))
-            }
-            , Response.ErrorListener {
-                Log.d("test", it.toString())
-            }
+                , url
+                , json
+                , Response.Listener {
+            Log.d("test", "코드 생성 ${it.toString()}")
+            success(it.getString("code"))
+        }
+                , Response.ErrorListener {
+            Log.d("test", it.toString())
+        }
         ) {
             override fun getBodyContentType(): String {
                 return "application/json"
@@ -114,25 +114,25 @@ object VolleyService {
         // Request객체를 생성하여야 함 종류는 다양하지만 여기선 JsonObjectRequest객체를 생성
         // 객체 생성 파라미터(메소드타입(GET,POST,PUT,DELETE) / URL / 보낼 데이터(json) / 통신 성공 리스너 / 통신 실패 리스너
         var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json
-            , Response.Listener {
-                // 통신 성공 리스너 : 통신 성공 시에 호출
-                if (pw != it.getString("PW"))
-                    success(2)
-                else if (pw == it.getString("PW"))
-                    success(3)
+                , url
+                , json
+                , Response.Listener {
+            // 통신 성공 리스너 : 통신 성공 시에 호출
+            if (pw != it.getString("PW"))
+                success(2)
+            else if (pw == it.getString("PW"))
+                success(3)
+        }
+                , Response.ErrorListener {
+            // 통신 실패 리스너 : 통신 실패 시에 호출
+            if (it is com.android.volley.TimeoutError) {
+                Log.d("test", "TimeoutError")
+                success(0)
+            } else if (it is com.android.volley.ParseError) {
+                Log.d("test", "ParserError")
+                success(1)
             }
-            , Response.ErrorListener {
-                // 통신 실패 리스너 : 통신 실패 시에 호출
-                if (it is com.android.volley.TimeoutError) {
-                    Log.d("test", "TimeoutError")
-                    success(0)
-                } else if (it is com.android.volley.ParseError) {
-                    Log.d("test", "ParserError")
-                    success(1)
-                }
-            }
+        }
         ) {
             //객체 생성 괄호(소괄호)를 닫은 후에 추가하는 요청 Body 부분(비어있어도 됨)
             //getBodyContentType()은 보내는 데이터의 타입을 정의하는 것
@@ -147,37 +147,37 @@ object VolleyService {
     //회원가입 요청
     //
     fun joinReq(
-        id: String, pw: String, name: String, birthday: String, gender: String
-        , nickname: String, webMail: String, universityName: String, departmentName: String, enterYear: String
-        , context: Context, success: (Int) -> Unit
+            id: String, pw: String, name: String, birthday: String, gender: String
+            , nickname: String, webMail: String, universityName: String, departmentName: String, enterYear: String
+            , context: Context, success: (Int) -> Unit
     ) {
         val url = "${ip}:3000/user"//요청 URL
 
         val json = JSONObject() // 서버로 전송할 json 객체
         json.put("id", id) // json 객체에 데이터 삽입, 첫번째 파라미터가 키, 두번째 파라미터가 값
-        json.put("pw",pw)
-        json.put("name",name)
-        json.put("birthday",birthday)
-        json.put("gender",gender)
-        json.put("nickname",nickname)
-        json.put("web_mail",webMail)
-        json.put("university_name",universityName)
-        json.put("department_name",departmentName)
-        json.put("enter_year",enterYear)
+        json.put("pw", pw)
+        json.put("name", name)
+        json.put("birthday", birthday)
+        json.put("gender", gender)
+        json.put("nickname", nickname)
+        json.put("web_mail", webMail)
+        json.put("university_name", universityName)
+        json.put("department_name", departmentName)
+        json.put("enter_year", enterYear)
 
         // Request객체를 생성하여야 함 종류는 다양하지만 여기선 JsonObjectRequest객체를 생성
         // 객체 생성 파라미터(메소드타입(GET,POST,PUT,DELETE) / URL / 보낼 데이터(json) / 통신 성공 리스너 / 통신 실패 리스너
         var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json
-            , Response.Listener {
-                // 통신 성공 리스너 : 통신 성공 시에 호출
-                success(1)
-            }
-            , Response.ErrorListener {
-                // 통신 실패 리스너 : 통신 실패 시에 호출
-                Log.d("test",it.toString())
-            }
+                , url
+                , json
+                , Response.Listener {
+            // 통신 성공 리스너 : 통신 성공 시에 호출
+            success(1)
+        }
+                , Response.ErrorListener {
+            // 통신 실패 리스너 : 통신 실패 시에 호출
+            Log.d("test", it.toString())
+        }
         ) {
             //객체 생성 괄호(소괄호)를 닫은 후에 추가하는 요청 Body 부분(비어있어도 됨)
             //getBodyContentType()은 보내는 데이터의 타입을 정의하는 것
@@ -200,14 +200,14 @@ object VolleyService {
         jsonArray.put(jsonObject)
 
         var request = object : JsonArrayRequest(Method.POST
-            , url
-            , jsonArray
-            , Response.Listener {
-                success(it)
-            }
-            , Response.ErrorListener {
-                Log.d("test", it.toString())
-            }) {
+                , url
+                , jsonArray
+                , Response.Listener {
+            success(it)
+        }
+                , Response.ErrorListener {
+            Log.d("test", it.toString())
+        }) {
 
         }
         Volley.newRequestQueue(context).add(request)
@@ -215,10 +215,10 @@ object VolleyService {
 
     //학과 검색
     fun search_department(
-        universityName: String,
-        departmentName: String,
-        context: Context,
-        success: (JSONArray?) -> Unit
+            universityName: String,
+            departmentName: String,
+            context: Context,
+            success: (JSONArray?) -> Unit
     ) {
         val url = "${ip}:3000/department"
 
@@ -230,14 +230,14 @@ object VolleyService {
         jsonArray.put(jsonObject)
 
         var request = object : JsonArrayRequest(Method.POST
-            , url
-            , jsonArray
-            , Response.Listener {
-                success(it)
-            }
-            , Response.ErrorListener {
-                Log.d("test", it.toString())
-            }) {
+                , url
+                , jsonArray
+                , Response.Listener {
+            success(it)
+        }
+                , Response.ErrorListener {
+            Log.d("test", it.toString())
+        }) {
 
         }
         Volley.newRequestQueue(context).add(request)
@@ -246,33 +246,28 @@ object VolleyService {
 
 
     //이메일로 아이디 찾기 ->상원
-<<<<<<< HEAD
-    fun findReq(email:String,context: Context,success: (String) -> Unit) {
-        val url = "http://172.30.1.42:3000/user/find_id"
-=======
-    fun findReq(email: String, context: Context, success: (Int) -> Unit) {
-        val url = "${ip}:3000/user"
->>>>>>> master
+
+    fun findReq(email: String, context: Context, success: (String) -> Unit) {
+        val url = "${ip}:3000/user/find_id"
 
         val json_search = JSONObject()
         json_search.put("email", email)
 
         var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json_search
-            , Response.Listener {
-                    success(it.getString("id")) // value 값이 넘어간다
+                , url
+                , json_search
+                , Response.Listener {
+            success(it.getString("id")) // value 값이 넘어간다
+        }
+                , Response.ErrorListener {
+            if (it is com.android.volley.TimeoutError) {
+                Log.d("test", "TimeoutError")
+                success("Time")
+            } else if (it is com.android.volley.ParseError) {
+                Log.d("test", "ParseError")
+                success("Parse")
             }
-            , Response.ErrorListener {
-                if (it is com.android.volley.TimeoutError) {
-                    Log.d("test", "TimeoutError")
-                    success("Time")
-                }
-            else if(it is com.android.volley.ParseError){
-                    Log.d("test", "ParseError")
-                    success("Parse")
-                }
-            }) {
+        }) {
             override fun getBodyContentType(): String {
                 return "applycation/json_search"
             }
@@ -281,13 +276,9 @@ object VolleyService {
 
     } //ID만 찾을떄쓰는 함수
 
-<<<<<<< HEAD
-    fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit){
-        val url = "http://172.30.1.42:3000/user/find_pw"
-=======
     fun findReq2(id: String, email: String, context: Context, success: (Int) -> Unit) {
-        val url = "${ip}:3000/user"
->>>>>>> master
+        val url = "${ip}:3000/user/find_pw"
+
 
         val json_search2 = JSONObject()
         json_search2.put("id", id)
@@ -296,23 +287,23 @@ object VolleyService {
         jsonArray.put(json_search2)
 
         var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json_search2
-            , Response.Listener {
-                if (email != it.getString("email"))
-                    success(2)
-                else if (email == it.getString("email"))
-                    success(3)
+                , url
+                , json_search2
+                , Response.Listener {
+            if (email != it.getString("email"))
+                success(2)
+            else if (email == it.getString("email"))
+                success(3)
+        }
+                , Response.ErrorListener {
+            if (it is com.android.volley.TimeoutError) {
+                Log.d("test", "TimeoutError")
+                success(0)
+            } else if (it is com.android.volley.ParseError) {
+                Log.d("test", "ParseError")
+                success(1)
             }
-            , Response.ErrorListener {
-                if (it is com.android.volley.TimeoutError) {
-                    Log.d("test", "TimeoutError")
-                    success(0)
-                } else if (it is com.android.volley.ParseError) {
-                    Log.d("test", "ParseError")
-                    success(1)
-                }
-            }) {
+        }) {
             override fun getBodyContentType(): String {
                 return "applycation/json_search2"
             }
@@ -321,73 +312,27 @@ object VolleyService {
 
     }//비번 찾을때 함수
 
-<<<<<<< HEAD
-    fun change_pw(pw:String, pw2:String, context: Context,success: (Int) -> Unit){
-        val url = "http://172.30.1.42:3000/user/update_user"
-=======
-    fun check_num(number: Int, context: Context, success: (Int) -> Unit) {
-        val url = "${ip}:3000/user"
-
-        val json_num = JSONObject()
-        json_num.put("number", number)
-
-        var jsonArray: JSONArray = JSONArray()
-        jsonArray.put(json_num)
-
-        var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json_num
-            , Response.Listener {
-                if (number == it.getInt("number"))
-                    success(3)
-            }
-            , Response.ErrorListener {
-                if (it is com.android.volley.TimeoutError) {
-                    Log.d("test", "TimeoutError")
-                    success(0)
-                } else if (it is com.android.volley.ParseError) {
-                    Log.d("test", "ParseError")
-                    success(1)
-                }
-            }) {
-            override fun getBodyContentType(): String {
-                return "application/json_num"
-            }
-        }
-    }
-
-    fun change_pw(pw: String, pw2: String, context: Context, success: (Int) -> Unit) {
-        val url = "${ip}:3000/user"
->>>>>>> master
+    fun change_pw(id: String, pw: String, context: Context, success: (Int) -> (Unit)) {
+        val url = "${ip}:3000/user/update_pw"
 
         val json_ch = JSONObject()
+        json_ch.put("id", id)
         json_ch.put("pw", pw)
 
-        var request = object : JsonObjectRequest(Method.POST
-            , url
-            , json_ch
-            , Response.Listener {
-                if (pw != pw2) {
-                    success(2)
-                } else if (pw == pw2) {
-                    success(3)
-                }
-            }
-            , Response.ErrorListener {
-                if (it is com.android.volley.TimeoutError) {
-                    Log.d("test", "TimeoutError")
-                    success(0)
-                } else if (it is com.android.volley.ParseError) {
-                    Log.d("test", "ParseError")
-                    success(1)
-                }
-            }) {
+        var request = object : JsonObjectRequest(Method.PUT
+                , url
+                , json_ch
+                , Response.Listener {
+            success(0)
+        }
+                , Response.ErrorListener {
+            success(1)
+        })
+        {
             override fun getBodyContentType(): String {
-                return "application/json_ch"
+                return "applycation/json_ch"
             }
         }
         Volley.newRequestQueue(context).add(request)
     }
-
-
 }
