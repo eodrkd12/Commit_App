@@ -12,16 +12,13 @@ module.exports = function () {
                 })
             });
         },
-        join: function(id,pw,name,birthday,gender,nickname,webMail,universityName,enterYear,departmentName,profileImage,callback){
+        join: function(id,pw,name,birthday,gender,nickname,email,verified,university,grade,department,profile_image){
             pool.getConnection(function(err,con){
-                var sql=`insert into user values('${id}','${pw}','${name}',${birthday},'${gender}','${nickname}','${webMail}','${universityName}',${enterYear},'${departmentName}',${profileImage})`
+                var sql=`insert into user values('${id}','${pw}','${name}',${birthday},'${gender}','${nickname}','${email}','${verified}','${university}',${grade},'${department}',${profile_image})`
                 con.query(sql, function(err,result,fields){
                     con.release();
-                    if(err) callback(err);
-                    else{
-                        console.log(result)
-                        callback(null,"success");
-                    }
+                    if(err) console.log(err);
+                    else console.log("회원가입 완료");
                 })
             })
         }

@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/text_id_logo"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/text_email_logo"
-            app:layout_constraintBottom_toTopOf="@id/button_search"
+            app:layout_constraintBottom_toTopOf="@id/btn_search"
             app:layout_constraintVertical_bias="1.0"/>
     <TextView
             android:text="이메일"
@@ -53,7 +53,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button_search" android:text="찾기"
+            android:id="@+id/btn_search" android:text="찾기"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_pw_logo"
-            app:layout_constraintTop_toBottomOf="@id/button_search"
+            app:layout_constraintTop_toBottomOf="@id/btn_search"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toTopOf="@id/editText2"

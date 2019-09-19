@@ -6,7 +6,7 @@
 3. 내용
 4. 댓글(답글보기/달기)
  */
-package com.example.commit.Main
+package com.example.commit.MainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

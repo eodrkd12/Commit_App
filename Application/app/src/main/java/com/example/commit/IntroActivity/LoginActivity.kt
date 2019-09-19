@@ -13,7 +13,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.example.commit.Main.MainActivity
+import com.example.commit.MainActivity.MainActivity
 import com.example.commit.R
 import com.example.commit.Singleton.VolleyService
 import kotlinx.android.synthetic.main.activity_login.*
@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
         //인승추가(도움말 버튼 클릭 시, 엑티비티 변환)
         text_guide.setOnClickListener {
-            var intent:Intent=Intent(this,GuideActivity::class.java)
+            var intent:Intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
 

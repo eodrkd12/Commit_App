@@ -18,7 +18,7 @@ import org.json.JSONObject
 
 object VolleyService {
 
-    val ip: String = "http://172.30.1.42"
+    val ip: String = "http://172.30.107.154"
 
     //==========세현==========
     //아이디 중복체크

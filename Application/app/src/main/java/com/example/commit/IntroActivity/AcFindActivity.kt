@@ -20,7 +20,7 @@ class AcFindActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_acfind) //엑티비티파인드
 
-       button_search.setOnClickListener {
+       btn_search.setOnClickListener {
            var email:String=editText.text.toString()
 
            VolleyService.findReq(email,this, {success ->
