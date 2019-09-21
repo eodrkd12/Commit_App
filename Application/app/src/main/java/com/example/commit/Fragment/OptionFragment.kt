@@ -1,5 +1,7 @@
 package com.example.commit.Fragment
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +16,6 @@ class OptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_optionfragment, container, false)
+        return inflater.inflate(R.layout.fragment_option, container, false)
     }
 }

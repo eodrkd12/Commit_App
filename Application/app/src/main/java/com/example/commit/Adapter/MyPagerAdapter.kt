@@ -1,5 +1,6 @@
 package com.example.commit.Adapter
 
+import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.commit.Fragment.AlamFragment

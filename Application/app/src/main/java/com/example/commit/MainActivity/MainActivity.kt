@@ -32,12 +32,16 @@ MainActivity
 */
 package com.example.commit.MainActivity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.commit.R
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v4.app.FragmentPagerAdapter
+import android.util.Log
+import android.view.View
 import com.example.commit.Adapter.MyPagerAdapter
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 
