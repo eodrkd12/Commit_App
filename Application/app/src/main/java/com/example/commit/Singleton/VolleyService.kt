@@ -18,7 +18,7 @@ import org.json.JSONObject
 
 object VolleyService {
 
-    val ip: String = "http://172.30.1.42"
+    val ip: String = "http://172.30.10.75"
 
     //==========세현==========
     //아이디 중복체크
@@ -269,7 +269,7 @@ object VolleyService {
             }
         }) {
             override fun getBodyContentType(): String {
-                return "applycation/json_search"
+                return "application/json"
             }
         }
         Volley.newRequestQueue(context).add(request)

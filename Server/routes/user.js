@@ -51,9 +51,11 @@ router.post('/find_pw',function(req,res,next){//상원
 })
 
 router.post('/find_id',function(req,res,next){ // 이메일로 id찾기
+  console.log(req.body.email);
   db_user.find_id(req.body.email,function(err,result){
     if(err) console.log(err)
     else{
+      console.log(result[0])
       res.send(result[0])
     }
   })
