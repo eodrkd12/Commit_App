@@ -43,6 +43,9 @@ import android.view.View
 import com.example.commit.Adapter.MyPagerAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 
+var staticId:String?=null
+var staticPw:String?=null
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +56,12 @@ class MainActivity : AppCompatActivity() {
         pager_content.adapter = fragmentAdapter
 
         tablayout.setupWithViewPager(pager_content)
+
+        var intent=intent
+        staticId=intent.getStringExtra("id")
+        staticPw=intent.getStringExtra("pw")
+
+
 
         //var getIntent:Intent=getIntent()
         // Log.d("test","id : ${getIntent.getStringExtra("id")} 로그인")

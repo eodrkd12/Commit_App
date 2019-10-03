@@ -1,5 +1,8 @@
 package com.example.commit.ListItem
 
 class DatingItem {
-    var id:String?=null
+    var nickname:String?=null
+    var department:String?=null
+    var age:String?=null
+    var gender:String?=null
 }

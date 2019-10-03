@@ -18,7 +18,7 @@ import org.json.JSONObject
 
 object VolleyService {
 
-    val ip: String = "http://172.30.107.154"
+    val ip: String = "http://172.30.1.42"
 
     //==========세현==========
     //아이디 중복체크
@@ -238,6 +238,29 @@ object VolleyService {
             , Response.ErrorListener {
                 Log.d("test", it.toString())
             }) {
+
+        }
+        Volley.newRequestQueue(context).add(request)
+    }
+
+    //데이팅 유저 불러오기
+    //현재 : 모든 유저 불러오기(임시)
+    //계획 : 데이팅 ON 유저만 불러오기
+    fun datingUserReq(context:Context,success:(JSONArray?)->Unit){
+        val url="${ip}:3000/user/dating"
+
+        var jsonArray=JSONArray()
+
+        var request=object:JsonArrayRequest(
+            Method.GET,
+            url,
+            jsonArray,
+            Response.Listener{
+                success(it)
+            },
+            Response.ErrorListener{
+                Log.d("test",it.toString())
+            }){
 
         }
         Volley.newRequestQueue(context).add(request)

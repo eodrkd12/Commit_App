@@ -10,6 +10,13 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/dating', function(req, res, next) {
+  db_user.get_user(function(err,result){
+    if(err) console.log(err);
+    else res.send(result);
+  })
+});
+
 router.post('/login', function(req,res,next){
   db_user.login(req.body.id,function(err,result){
     if(err) console.log(err);
