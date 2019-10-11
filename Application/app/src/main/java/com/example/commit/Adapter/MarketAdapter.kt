@@ -9,11 +9,11 @@ import android.widget.TextView
 import com.example.commit.ListItem.PostItem
 import com.example.commit.R
 
-class PostAdapter:BaseAdapter() {
-    private var postList = ArrayList<PostItem>()
+class MarketAdapter:BaseAdapter() {
+    private var marketList = ArrayList<PostItem>()
 
     override fun getCount(): Int {
-        return postList.size
+        return marketList.size
     }
 
     override fun getItemId(position: Int): Long {
@@ -21,7 +21,7 @@ class PostAdapter:BaseAdapter() {
     }
 
     override fun getItem(position: Int): Any {
-        return postList.get(position)
+        return marketList.get(position)
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -31,25 +31,30 @@ class PostAdapter:BaseAdapter() {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (view == null) {
             val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            view = inflater.inflate(R.layout.item_department, parent, false)
+            view = inflater.inflate(R.layout.item_post_list, parent, false)
         }
 
-        var textView=view?.findViewById(R.id.text_department) as TextView
+        var textTitle=view?.findViewById(R.id.text_title) as TextView
+        var textWriter=view?.findViewById(R.id.text_writer) as TextView
 
-        var item=postList[position]
+        var item=marketList[position]
 
-        textView.setText(item.title)
+        textTitle.setText(item.title)
+        textWriter.setText(item.writer)
 
         return view
     }
 
-    fun addItem(text: String,enable: Boolean){
+    fun addItem(title: String,writer: String){
         val item= PostItem()
 
-        postList.add(item)
+        item.title=title
+        item.writer=writer
+
+        marketList.add(item)
     }
 
     fun clear(){
-        postList.clear()
+        marketList.clear()
     }
 }

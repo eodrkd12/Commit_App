@@ -2,21 +2,23 @@ package com.example.commit.MainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.commit.Adapter.DatingAdapter
+import com.example.commit.Adapter.MarketAdapter
+import com.example.commit.Adapter.StudyAdapter
 import com.example.commit.R
 import com.example.commit.Singleton.VolleyService
 import kotlinx.android.synthetic.main.activity_content.*
-import kotlinx.android.synthetic.main.activity_join1.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ContentActivity : AppCompatActivity() {
 
     var datingAdapter=DatingAdapter()
-    var datingArray:JSONArray?=null
+    var marketAdapter= MarketAdapter()
+    var studyAdapter= StudyAdapter()
+
+    var contentArray:JSONArray?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,20 +28,21 @@ class ContentActivity : AppCompatActivity() {
         var tag=intent.getStringExtra("tag")
 
         when(tag){
+            //데이팅 리스트 표시
             "DATING" -> {
                 VolleyService.datingUserReq(this,{success ->
                     list_content.adapter=datingAdapter
                     datingAdapter.clear()
 
-                    datingArray=success
+                    contentArray=success
 
-                    if(datingArray!!.length()==0){
+                    if(contentArray!!.length()==0){
 
                     }
                     else{
-                        for(i in 0..datingArray!!.length()-1){
+                        for(i in 0..contentArray!!.length()-1){
                             var json=JSONObject()
-                            json=datingArray!![i] as JSONObject
+                            json=contentArray!![i] as JSONObject
                             var nickname=json.getString("nickname")
                             var department=json.getString("department")
                             //현재 연도 구하기
@@ -51,7 +54,6 @@ class ContentActivity : AppCompatActivity() {
 
                             //이용자 나이 계산
                             var age=year-Integer.parseInt(birthday)+1
-                            Log.d("test","${birthday}")
                             //이용자 성별
                             var gender:String?=null;
                             if(json.getString("gender")=="M")
@@ -63,6 +65,39 @@ class ContentActivity : AppCompatActivity() {
                     }
 
                     datingAdapter.notifyDataSetChanged()
+                })
+            }
+
+            //마켓 OR STUDY 게시글 리스트 표시
+            else -> {
+                VolleyService.postReq(tag,this,{success ->
+                    if(tag=="MARKET") {
+                        list_content.adapter = marketAdapter
+                        marketAdapter.clear()
+                    }
+                    else{
+                        list_content.adapter = studyAdapter
+                        studyAdapter.clear()
+                    }
+                    contentArray=success
+
+                    if(contentArray!!.length()==0){
+
+                    }
+                    else{
+                        for(i in 0..contentArray!!.length()-1){
+                            var json=JSONObject()
+                            json=contentArray!![i] as JSONObject
+                            var title=json.getString("title")
+                            var writer=json.getString("writer")
+
+                            if(tag=="MARKET") marketAdapter.addItem(title,writer)
+                            else studyAdapter.addItem(title,writer)
+                        }
+                    }
+
+                    if(tag=="MARKET") marketAdapter.notifyDataSetChanged()
+                    else studyAdapter.notifyDataSetChanged()
                 })
             }
         }

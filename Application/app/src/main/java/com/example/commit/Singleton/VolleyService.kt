@@ -17,8 +17,9 @@ import org.json.JSONObject
 //VolleyService를 사용하기위한 싱글톤
 
 object VolleyService {
-
-    val ip: String = "http://172.30.1.42"
+    //학교
+    val ip: String = "http://172.30.104.192"
+    //val ip: String = "http://192.168.43.247"
 
     //==========세현==========
     //아이디 중복체크
@@ -250,6 +251,27 @@ object VolleyService {
         val url="${ip}:3000/user/dating"
 
         var jsonArray=JSONArray()
+
+        var request=object:JsonArrayRequest(
+            Method.GET,
+            url,
+            jsonArray,
+            Response.Listener{
+                success(it)
+            },
+            Response.ErrorListener{
+                Log.d("test",it.toString())
+            }){
+
+        }
+        Volley.newRequestQueue(context).add(request)
+    }
+
+    //게시글 불러오기 : 태그 이용
+    fun postReq(tag:String, context: Context, success: (JSONArray?)->Unit){
+        val url="${ip}:3000/post/${tag}"
+
+        val jsonArray=JSONArray()
 
         var request=object:JsonArrayRequest(
             Method.GET,
